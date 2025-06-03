@@ -1,9 +1,7 @@
-import { StyleSheet } from "react-native";
-import { heightScale, widthScale } from "../../utils/Utility";
-import { AppColors } from "../../constants/AppColors";
-import { fontFamily } from "../../constants/AppFonts";
-
-
+import {StyleSheet} from 'react-native';
+import {heightScale, widthScale} from '../../utils/Utility';
+import {AppColors} from '../../constants/AppColors';
+import {fontFamily} from '../../constants/AppFonts';
 
 const styles = StyleSheet.create({
   container: {
@@ -19,28 +17,26 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 28,
-    fontWeight: 'bold',
-    fontFamily:fontFamily.RobotoSlab_Bold
+    fontFamily: fontFamily.RobotoSlab_Bold,
   },
   version: {
     fontSize: 14,
     color: AppColors.lightGrey,
     marginBottom: heightScale(10),
-    fontFamily:fontFamily.RobotoSlab_Light
+    fontFamily: fontFamily.RobotoSlab_Light,
   },
   description: {
     fontSize: 16,
     textAlign: 'center',
     marginBottom: heightScale(30),
     lineHeight: heightScale(22),
-    fontFamily:fontFamily.RobotoSlab_Light
+    fontFamily: fontFamily.RobotoSlab_Light,
   },
   sectionTitle: {
     marginTop: heightScale(20),
     marginBottom: heightScale(8),
     fontSize: 18,
-    fontFamily:fontFamily.Quicksand_Bold,
-    fontWeight:'600'
+    fontFamily: fontFamily.Quicksand_Bold,
   },
   link: {
     color: AppColors.blue,

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {
   ActivityIndicator,
   FlatList,
@@ -8,18 +8,18 @@ import {
 } from 'react-native';
 
 import styles from './styles';
-import { getAllCountries } from '../../services/api';
+import {getAllCountries} from '../../services/api';
 import CountryCard from '../../component/CountryCard/CountryCard';
 import BackgroundWrapper from '../../component/BackgroundWrapper/BackgroundWrapper';
 import SearchBar from '../../component/SearchBar/SearchBar';
-import { FavoritesContext } from '../../context/FavoritesContext';
-import { AppStrings } from '../../constants/AppStrings';
-import { Routes } from '../../constants/RouteConstants';
-import { AppColors } from '../../constants/AppColors';
+import {FavoritesContext} from '../../context/FavoritesContext';
+import {AppStrings} from '../../constants/AppStrings';
+import {Routes} from '../../constants/RouteConstants';
+import {AppColors} from '../../constants/AppColors';
 
 const ITEMS_PER_PAGE = 10;
 
-const HomeScreen = ({ navigation }) => {
+const HomeScreen = ({navigation}) => {
   const [countries, setCountries] = useState([]);
   const [filteredCountries, setFilteredCountries] = useState([]);
   const [visibleCountries, setVisibleCountries] = useState([]);
@@ -27,7 +27,8 @@ const HomeScreen = ({ navigation }) => {
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
-  const { addFavorite, removeFavorite, isFavorite } = useContext(FavoritesContext);
+  const {addFavorite, removeFavorite, isFavorite} =
+    useContext(FavoritesContext);
 
   useEffect(() => {
     fetchCountries();
@@ -46,10 +47,10 @@ const HomeScreen = ({ navigation }) => {
     }
   };
 
-  const handleSearch = (text) => {
+  const handleSearch = text => {
     setSearchQuery(text);
     const filtered = countries.filter(country =>
-      country.name.common.toLowerCase().includes(text.toLowerCase())
+      country.name.common.toLowerCase().includes(text.toLowerCase()),
     );
     setFilteredCountries(filtered);
     setPage(1);
@@ -57,7 +58,9 @@ const HomeScreen = ({ navigation }) => {
   };
 
   const loadMore = () => {
-    if (loadingMore) return;
+    if (loadingMore) {
+      return;
+    }
 
     setLoadingMore(true);
     const nextPage = page + 1;
@@ -73,19 +76,20 @@ const HomeScreen = ({ navigation }) => {
     setLoadingMore(false);
   };
 
-  const renderCountryItem = ({ item }) => {
+  const renderCountryItem = ({item}) => {
     const favorite = isFavorite(item);
 
     return (
       <View style={styles.cardWrapper}>
         <CountryCard
           country={item}
-          onPressDetails={() => navigation.navigate(Routes.DETAILS, { country: item })}
+          onPressDetails={() =>
+            navigation.navigate(Routes.DETAILS, {country: item})
+          }
         />
         <TouchableOpacity
           style={styles.favoriteButton}
-          onPress={() => favorite ? removeFavorite(item) : addFavorite(item)}
-        >
+          onPress={() => (favorite ? removeFavorite(item) : addFavorite(item))}>
           <Text style={styles.favoriteText}>
             {favorite ? `${AppStrings.REMOVE} ❤️` : AppStrings.ADD_TO_FAVORITES}
           </Text>
@@ -96,7 +100,11 @@ const HomeScreen = ({ navigation }) => {
 
   const renderFooter = () =>
     loadingMore ? (
-      <ActivityIndicator size="small" color={AppColors.lightGrey} style={styles.footerLoader} />
+      <ActivityIndicator
+        size="small"
+        color={AppColors.lightGrey}
+        style={styles.footerLoader}
+      />
     ) : null;
 
   const renderEmptyComponent = () => (
@@ -108,7 +116,11 @@ const HomeScreen = ({ navigation }) => {
   if (loading) {
     return (
       <View style={styles.loaderContainer}>
-        <ActivityIndicator testID="ActivityIndicator" size="large" color={AppColors.lightGrey} />
+        <ActivityIndicator
+          testID="ActivityIndicator"
+          size="large"
+          color={AppColors.lightGrey}
+        />
       </View>
     );
   }

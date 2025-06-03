@@ -1,6 +1,6 @@
-import { StyleSheet } from "react-native";
-import { AppColors } from "../../constants/AppColors";
-import { heightScale, widthScale } from "../../utils/Utility";
+import {StyleSheet} from 'react-native';
+import {AppColors} from '../../constants/AppColors';
+import {heightScale, widthScale} from '../../utils/Utility';
 
 const styles = StyleSheet.create({
   container: {
@@ -8,10 +8,10 @@ const styles = StyleSheet.create({
   },
   searchTxt: {
     borderBottomWidth: heightScale(1),
-    marginBottom: heightScale(10)
+    marginBottom: heightScale(10),
   },
   removeTxt: {
-    color: AppColors.red
+    color: AppColors.red,
   },
   emptyContainer: {
     flex: 1,
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     marginVertical: heightScale(8),
     padding: widthScale(12),
     shadowColor: AppColors.shadowColor,
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.1,
     shadowRadius: widthScale(4),
     elevation: 3,
@@ -53,14 +53,11 @@ const styles = StyleSheet.create({
   },
   favoriteText: {
     color: AppColors.white,
-    fontWeight: 'bold',
     fontSize: 11,
   },
-  footerLoader:{
-    marginVertical: 10 
-  }
-
-
+  footerLoader: {
+    marginVertical: 10,
+  },
 });
 
 export default styles;

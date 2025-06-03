@@ -1,14 +1,18 @@
 import React from 'react';
-import { TextInput, View } from 'react-native';
+import {TextInput, View} from 'react-native';
 import styles from './styles';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { AppColors } from '../../constants/AppColors';
+import {AppColors} from '../../constants/AppColors';
 
-const SearchBar = ({ value, onChangeText, placeholder = 'Search...' }) => {
-
+const SearchBar = ({value, onChangeText, placeholder = 'Search...'}) => {
   return (
     <View style={styles.searchContainer}>
-      <Icon name="search" size={20} color={AppColors.black} style={styles.searchIcon} />
+      <Icon
+        name="search"
+        size={20}
+        color={AppColors.black}
+        style={styles.searchIcon}
+      />
       <TextInput
         testID="search-input"
         placeholder={placeholder}
@@ -19,9 +23,6 @@ const SearchBar = ({ value, onChangeText, placeholder = 'Search...' }) => {
       />
     </View>
   );
-
 };
-
-
 
 export default SearchBar;
