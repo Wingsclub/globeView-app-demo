@@ -5,6 +5,6 @@ export const Routes = {
   ABOUT: 'About',
   FAVORITES: 'Favorites',
   SEARCH: 'Search',
-  DETAILS:'Details',
-  COUNTRIES:'Countries'
+  DETAILS: 'Details',
+  COUNTRIES: 'Countries',
 };

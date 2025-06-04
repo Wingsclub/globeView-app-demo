@@ -7,11 +7,10 @@ export const AppColors = {
   mirage: '#1c1c1c',
   darkGray: '#333333',
   vistaWhite: '#f8f8f8',
-  lightRed:"#ff6b81",
-  shadowColor:'#000',
-  lightGrey:'#999',
-  lightBackgroundColor:"#ff6b81",
-  backgroundColor:'rgba(255,255,255,0.7)',
-  borderColor:'#ccc'
-  
+  lightRed: '#ff6b81',
+  shadowColor: '#000',
+  lightGrey: '#999',
+  lightBackgroundColor: '#ff6b81',
+  backgroundColor: 'rgba(255,255,255,0.7)',
+  borderColor: '#ccc',
 };
