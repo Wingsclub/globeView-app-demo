@@ -10,18 +10,14 @@ import {Routes} from '../../constants/RouteConstants';
 const FavoritesScreen = ({navigation}) => {
   const {favorites, removeFavorite} = useContext(FavoritesContext);
 
+  const handleNavigation = item => {
+    navigation.navigate(Routes.DETAILS, {country: item});
+  };
+
   const renderCountryItem = ({item}) => {
     return (
       <View style={styles.cardWrapper}>
-        <TouchableOpacity
-          onPress={() => navigation.navigate(Routes.DETAILS, {country: item})}>
-          <CountryCard
-            country={item}
-            onPressDetails={() =>
-              navigation.navigate(Routes.DETAILS, {country: item})
-            }
-          />
-        </TouchableOpacity>
+        <CountryCard country={item} onPressDetails={handleNavigation} />
         <TouchableOpacity
           style={styles.favoriteButton}
           onPress={() => removeFavorite(item)}>

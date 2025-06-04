@@ -5,7 +5,7 @@ import BackgroundWrapper from '../../component/BackgroundWrapper/BackgroundWrapp
 import {AppStrings} from '../../constants/AppStrings';
 
 const DetailsScreen = ({route}) => {
-  const {country} = route.params;
+  const country = route?.params?.country;
 
   const renderInfoBlock = (label, value) => (
     <View style={styles.infoBlock}>
@@ -17,7 +17,7 @@ const DetailsScreen = ({route}) => {
   const renderLanguages = () => (
     <View style={styles.infoBlock}>
       <Text style={styles.label}>{AppStrings.LANGUAGES}</Text>
-      {country.languages ? (
+      {country?.languages ? (
         Object.values(country.languages).map(lang => (
           <Text key={lang} style={styles.value}>
             • {lang}
@@ -32,18 +32,20 @@ const DetailsScreen = ({route}) => {
   return (
     <BackgroundWrapper>
       <ScrollView contentContainerStyle={styles.container}>
-        <Image source={{uri: country.flags?.png}} style={styles.flag} />
-        <Text style={styles.countryTxt}>{country.name.common}</Text>
-        {renderInfoBlock(AppStrings.CAPITAL, country.capital?.[0])}
-        {renderInfoBlock(AppStrings.REGION, country.region)}
-        {renderInfoBlock(AppStrings.SUB_REGION, country.subregion)}
+        <Image source={{uri: country?.flags?.png}} style={styles.flag} />
+        <Text style={styles.countryTxt}>
+          {country?.name?.common || AppStrings.NA}
+        </Text>
+        {renderInfoBlock(AppStrings.CAPITAL, country?.capital?.[0])}
+        {renderInfoBlock(AppStrings.REGION, country?.region)}
+        {renderInfoBlock(AppStrings.SUB_REGION, country?.subregion)}
         {renderInfoBlock(
           AppStrings.POPULATION,
-          country.population?.toLocaleString(),
+          country?.population?.toLocaleString(),
         )}
         {renderInfoBlock(
           AppStrings.AREA,
-          `${country.area?.toLocaleString()} km²`,
+          country?.area ? `${country.area.toLocaleString()} km²` : null,
         )}
         {renderLanguages()}
       </ScrollView>
